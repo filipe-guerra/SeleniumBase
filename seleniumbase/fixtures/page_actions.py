@@ -545,13 +545,15 @@ def find_visible_elements(driver, selector, by=By.CSS_SELECTOR):
         return v_elems
 
 
-def save_screenshot(driver, name, folder=None):
+def save_screenshot(driver, name, folder=None, save_time=False):
     """
     Saves a screenshot to the current directory (or to a subfolder if provided)
     If the folder provided doesn't exist, it will get created.
     The screenshot will be in PNG format.
     """
     if not name.endswith(".png"):
+        if save_time:
+            name = time.strftime("%Y%m%d_%Hh%Mm%S") + "_" + name
         name = name + ".png"
     if folder:
         abs_path = os.path.abspath('.')

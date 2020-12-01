@@ -1963,9 +1963,9 @@ class BaseCase(unittest.TestCase):
         """ Sets self.driver to the default/original driver. """
         self.driver = self._default_driver
 
-    def save_screenshot(self, name, folder=None):
+    def save_screenshot(self, name, folder=None, save_time=False):
         """ The screenshot will be in PNG format. """
-        return page_actions.save_screenshot(self.driver, name, folder)
+        return page_actions.save_screenshot(self.driver, name, folder, save_time)
 
     def save_page_source(self, name, folder=None):
         """ Saves the page HTML to the current directory (or given subfolder).
